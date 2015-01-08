@@ -6,6 +6,11 @@ Please present the project that you wish to be peer reviewed in this folder. Rep
 Animal Quiz (wasn't able to complete alone aka copypasta)
 Game of Life
 
+## Description of Project
+-Please describe why you chose to present this project and what do you think it's the best or most accomplishing feature
+
+They are finished and working.
+
 
 ## Challenges
 
@@ -13,7 +18,7 @@ Game of Life
 
 - Based on this project, what do you want to learn more of?
 
-Game of Life: I had a lot of trouble organizing my code and knowing what went where. My biggest challenge keeping track of the logic flow and organizing code. Using the debugger/print driven development, I was able to walk myself through the flow with help from carlos' solution. 
+Game of Life: I had a lot of trouble organizing my code and knowing what should go where. My biggest challenge keeping track of the logic flow and organizing code. Using the debugger/print driven development, I was able to walk myself through the flow with help from carlos' solution. 
 
 Animal Quiz: After many attempts, I realized my logic and design wasn't sound, although I had managed to have "working code" until then. I kept hitting this landmine of a logic no matter how many approaches I thought up. I had to walk myself through the ruby quiz solutions and tried to replicate them. They all used the binary search method, which I had to educate myself on before understanding the flow.
 
