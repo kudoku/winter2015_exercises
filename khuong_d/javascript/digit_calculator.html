@@ -1,0 +1,97 @@
+<html>
+<head>
+  <script src="jquery-1.11.2.min.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+      var $display = $('#calculator_form input[name=display_textfield]');
+      var $first_operand = $('#calculator_form input[name=operand]').eq(0); // eq(number) returns a jquery object
+      var $operator = $('#calculator_form input[name=operator]');
+
+      $('#calculator_form input[name=digit]').click(function(){
+        if ( !parseFloat( $display.val() )){
+        // if ($display.val().match(/[\+\-\/\*]/)){
+          $display.val('');
+        }
+        var digit_value = this.value;
+        var previous_display_value = $display[0].value; // Getting a selection like an array or with get(number) returns the DOM element 
+        $display.val(previous_display_value + digit_value);
+      });
+
+      $('#calculator_form input[name=operator_button]').click(function(){
+        $operator.val(this.value); 
+        $first_operand.val($display.val());
+        $display.val(this.value); // Erase the display
+      });
+
+      $('#result_button').click(function(){
+        var $second_operand = $display;
+
+        var result;   
+
+        switch($operator.val()){
+          case '+':
+            result = parseFloat($first_operand.val()) + parseFloat($second_operand.val());
+            break;
+          case '-':
+            result = parseFloat($first_operand.val()) - parseFloat($second_operand.val());
+            break;
+          case '/':
+            result = parseFloat($first_operand.val()) / parseFloat($second_operand.val());
+            break;
+          case '*':
+            result = parseFloat($first_operand.val()) * parseFloat($second_operand.val());
+            break;
+        };
+        $second_operand.val(result);
+      });
+
+      $('#clear_button').click(function(){
+        $first_operand.val(''); // eq(number) returns a jquery object
+        $operator.val('');
+        $display.val('');
+      });
+
+    });
+  </script>
+</head> 
+<body>
+  <form id='calculator_form'>
+    <input type='text' name='display_textfield' placeholder='use the keypad' disabled value=''><br/>
+    <input type='hidden' name='operand' value='' />
+    <input type='hidden' name='operator' value='' />
+    <table>
+      <tr>
+        <td><input type='button' name='digit' value='1'></td>
+        <td><input type='button' name='digit' value='2'></td>
+        <td><input type='button' name='digit' value='3'></td>
+      </tr>
+      <tr>
+        <td><input type='button' name='digit' value='4'></td>
+        <td><input type='button' name='digit' value='5'></td>
+        <td><input type='button' name='digit' value='6'></td>
+      </tr>
+      <tr>
+        <td><input type='button' name='digit' value='7'></td>
+        <td><input type='button' name='digit' value='8'></td>
+        <td><input type='button' name='digit' value='9'></td>
+      </tr>
+      <tr>
+        <td><input type='button' name='digit' value='.'></td>
+        <td><input type='button' name='digit' value='0'></td>
+        <td><input type='button' id='result_button' name='result' value='='></td>
+      </tr>
+    </table>
+
+    Operators
+    <ul class='oprators'>
+      <li><input type='button' name='operator_button' value='+' /></li>
+      <li><input type='button' name='operator_button' value='-' /></li>
+      <li><input type='button' name='operator_button' value='/' /></li>
+      <li><input type='button' name='operator_button' value='*' /></li>
+      <li><input type='button' id='clear_button' name='clear_button' value='clear' /></li>
+    </ul>
+    
+  </form>
+</body>
+</html>
